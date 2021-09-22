@@ -13,11 +13,12 @@ interface MenuItemProps {
     | 'ic-menu-rewards'
     | 'ic-menu-settings'
     | 'ic-menu-logout';
+  link: string;
   active?: boolean;
 }
 
 export default function MenuItem(props: MenuItemProps) {
-  const { title, icon, active } = props;
+  const { title, icon, active, link } = props;
   const classItem = cx({
     item: true,
     'mb-30': true,
@@ -36,7 +37,7 @@ export default function MenuItem(props: MenuItemProps) {
           />
         </div>
         <p className='item-title m-0'>
-          <Link href=''>
+          <Link href={link}>
             <a className='text-lg text-decoration-none'>{title}</a>
           </Link>
         </p>
